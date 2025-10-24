@@ -6,13 +6,13 @@
 /*   By: lbardet- <lbardet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 07:03:55 by lbardet-          #+#    #+#             */
-/*   Updated: 2025/10/21 07:08:36 by lbardet-         ###   ########.fr       */
+/*   Updated: 2025/10/24 03:10:04 by lbardet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_puthex_base(unsigned long n, const char *base)
+int	ft_puthex_base(unsigned long n, const char *base)
 {
 	int	count;
 

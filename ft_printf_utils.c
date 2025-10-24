@@ -6,7 +6,7 @@
 /*   By: lbardet- <lbardet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 05:55:35 by lbardet-          #+#    #+#             */
-/*   Updated: 2025/10/21 07:10:08 by lbardet-         ###   ########.fr       */
+/*   Updated: 2025/10/24 23:19:30 by lbardet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_putstr(char *str)
 	{
 		count += 6;
 		write(1, "(null)", 6);
-		return ;
+		return (count);
 	}
 	while (*str)
 	{
@@ -64,5 +64,16 @@ int	ft_putnbr(int n)
 	if (num >= 10)
 		count += ft_putnbr(num / 10);
 	count += ft_putchar((num % 10) + '0');
+	return (count);
+}
+
+int	ft_putunbr(unsigned int n)
+{
+	int		count;
+
+	count = 0;
+	if (n >= 10)
+		count += ft_putunbr(n / 10);
+	count += ft_putchar((n % 10) + '0');
 	return (count);
 }

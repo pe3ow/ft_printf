@@ -6,7 +6,7 @@
 /*   By: lbardet- <lbardet-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 05:38:17 by lbardet-          #+#    #+#             */
-/*   Updated: 2025/10/21 07:06:25 by lbardet-         ###   ########.fr       */
+/*   Updated: 2025/10/24 23:22:36 by lbardet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,16 @@ static int	ft_form(va_list args, const char form)
 		return (ft_putchar(va_arg(args, int)));
 	if (form == 's')
 		return (ft_putstr(va_arg(args, char *)));
-	if (form == '%')
-		return (ft_putchar('%'));
 	if (form == 'x')
 		return (ft_puthex(va_arg(args, unsigned int), 0));
 	if (form == 'X')
 		return (ft_puthex(va_arg(args, unsigned int), 1));
 	if (form == 'p')
 		return (ft_putptr(va_arg(args, void *)));
+	if (form == 'u')
+		return (ft_putunbr(va_arg(args, unsigned int)));
+	else
+		return (ft_putchar(form));
 	return (0);
 }
 
@@ -37,6 +39,8 @@ int	ft_printf(const char *form, ...)
 	int		i;
 	int		count;
 
+	if (!form)
+		return (0);
 	i = 0;
 	count = 0;
 	va_start(args, form);
@@ -53,3 +57,10 @@ int	ft_printf(const char *form, ...)
 	va_end(args);
 	return (count);
 }
+
+// int	main(){
+// 	int	i = 10;
+// 	ssize_t	j = 64168416516868761;
+// 	ft_printf("CAAUBERT %d, %X", i, j);
+// 	return (0);
+// }
